@@ -1,0 +1,515 @@
+/* ========== CSS Variables ========== */
+:root {
+  /* Typography */
+  --font-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-heading: 3rem;
+  --line-height-base: 1.6;
+  --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition: 0.25s ease;
+
+  /* Colors */
+  --color-brand-primary: #000000; /* Baby blue */
+--color-brand-hover: #3e78b2;   /* Stronger modern blue on hover */
+ --color-text-light: #2f76b4;
+  --color-text-dark: rgba(88, 115, 215, 0.87);
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #ffffff;
+  --color-primary: #ffffff;
+  --color-primary-hover: #6d6a6a;
+  --color-gradient-start: #fffcfc;
+  --color-gradient-end: #ffffff;
+  --color-gradient-hover-start: #4e4e50;
+  --color-gradient-hover-end: #3a445e;
+  --color-button-light: #686464;
+  --color-button-dark: #1a1a1a;
+}
+
+/* ========== Base Styles ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== Base Layout ========== */
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text-dark);
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  transition: all var(--transition);
+}
+
+/* Restore original container alignment */
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto; /* This centers the container horizontally */
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Remove text centering from headings (except h1 which you wanted centered) */
+h2, h3, h4, h5, h6 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: left; /* Restore left alignment */
+}
+
+/* Keep h1 centered as per your original */
+h1 {
+  font-size: var(--font-size-heading);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Restore original card alignment */
+.card {
+  background: rgba(66, 78, 255, 0.596);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(45, 27, 206, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: left; /* Ensure content inside cards is left-aligned */
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== Buttons (Original Style) ========== */
+button,
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  color: white;
+  background: rgba(8, 0, 0, 0.2);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition);
+  margin: 0.5rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(8, 2, 2, 0.2);
+}
+
+button:hover,
+.btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+button:active,
+.btn:active {
+  transform: scale(0.98);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, var(--color-gradient-hover-start), var(--color-gradient-hover-end));
+}
+
+/* ========== Forms ========== */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition);
+  backdrop-filter: blur(5px);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgb(3, 2, 2);
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+/* ========== Navigation ========== */
+nav {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+
+}
+.nav-links a {
+  color: #000000; /* Soft modern purple */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover {
+  color: #000000; /* Lighter lavender on hover */
+  background-color: rgba(127, 90, 240, 0.1);
+}
+
+
+/* ========== Root Variables ========== */
+:root {
+  --footer-height: 80px; /* Adjust as needed */
+}
+
+/* ========== Base Layout ========== */
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px;/* Create space for footer */
+  margin: 0;
+}
+.hero-cta{
+  color:black;
+
+}
+/* ========== Footer Styles ========== */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* Adjust height as needed */
+  background: linear-gradient(135deg, 
+    rgba(7, 4, 65, 0.2), 
+    rgba(123, 158, 255, 0.15));
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  /* Prevent horizontal movement */
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Simple animated border */
+footer::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(52, 44, 204, 0.8),
+    transparent);
+  animation: borderFlow 3s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.footer-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .main-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    color:rgb(0, 0, 0);
+  }
+}
+
+/* ========== Light Mode ========== */
+@media (prefers-color-scheme: light) {
+  body {
+    color: rgb(0, 0, 0);
+    background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  }
+
+  .main-container,
+  .card,
+  nav,
+  footer {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  input,
+  select,
+  textarea {
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+/* ========== Enhanced View Basket Button ========== */
+.basket-btn-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.view-basket-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, 
+              var(--color-gradient-start), 
+              var(--color-gradient-end));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.view-basket-btn:hover {
+  background: linear-gradient(135deg, 
+              var(--color-gradient-hover-start), 
+              var(--color-gradient-hover-end));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(41, 34, 175, 0.4);
+}
+
+.view-basket-btn:active {
+  transform: translateY(1px);
+}
+
+.basket-icon {
+  font-size: 1.2rem;
+  display: flex;
+}
+
+.basket-count {
+  background-color: #ff4757;
+  color: rgb(54, 12, 12);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  box-shadow: 0 2px 8px rgba(30, 56, 169, 0.2);
+}
+
+/* Pulse animation for attention */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.basket-count.pulse {
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* Shimmer effect on hover */
+.view-basket-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.view-basket-btn:hover::after {
+  left: 100%;
+}
+/* ========== Basket Button Container ========== */
+.basket-btn-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+/* ========== Basket Button Styles ========== */
+.basket-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, 
+              var(--color-gradient-start), 
+              var(--color-gradient-end));
+  color: rgb(0, 0, 0) !important;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none !important;
+  box-shadow: 0 4px 15px rgba(13, 10, 85, 0.3);
+  transition: all var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+.basket-btn:hover {
+  background: linear-gradient(135deg, 
+              var(--color-gradient-hover-start), 
+              var(--color-gradient-hover-end));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.basket-btn:active {
+  transform: translateY(1px);
+}
+
+.basket-icon {
+  font-size: 1.25rem;
+}
+
+.basket-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: #ff4757;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for button */
+@keyframes slideIn {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.basket-btn-container {
+  animation: slideIn 0.5s ease-out forwards;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-brand-primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.brand-logo:hover {
+  color: var(--color-brand-hover);
+}
+
+.brand-logo svg {
+  color: var(--color-brand-primary);
+  transition: color var(--transition);
+}
+
+.brand-logo:hover svg {
+  color: var(--color-brand-hover);
+}
+
+
